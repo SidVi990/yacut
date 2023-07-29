@@ -7,6 +7,8 @@ from wtforms.validators import (
     Regexp,
 )
 
+from .constants import SHORT_MAX_LENGTH
+
 
 class URLMapForm(FlaskForm):
     original_link = StringField(
@@ -20,7 +22,7 @@ class URLMapForm(FlaskForm):
         'Ваш вариант короткой ссылки',
         validators=(
             Length(
-                max=16,
+                max=SHORT_MAX_LENGTH,
                 message='Короткая ссылка не должна превышать 16 символов',
             ),
             Regexp(
